@@ -1,10 +1,10 @@
-package com.rodrigues.heric.CadastroDeUsuarios.model;
+package com.rodrigues.heric.CadastroDeUsuarios.Users.Model;
 
 import jakarta.persistence.*;
 
 @Entity
 @Table(name = "tb_users")
-public class UsuarioModel {
+public class UserModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -13,10 +13,10 @@ public class UsuarioModel {
     private String email;
     private int age;
 
-    public UsuarioModel() {
+    public UserModel() {
     }
 
-    public UsuarioModel(String name, String email, int age) {
+    public UserModel(String name, String email, int age) {
         this.name = name;
         this.email = email;
         this.age = age;

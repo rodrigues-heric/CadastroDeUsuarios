@@ -1,4 +1,4 @@
-package com.rodrigues.heric.CadastroDeUsuarios.controller;
+package com.rodrigues.heric.CadastroDeUsuarios.Users.Controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping
-public class UsuarioController {
+public class UserController {
 
     @GetMapping("/boas-vindas")
     public String welcome() {
