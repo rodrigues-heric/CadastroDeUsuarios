@@ -14,11 +14,11 @@ public class UserService {
     private UserRepository userRepository;
 
     public UserModel saveUser(UserModel userModel) {
-        return userRepository.save(userModel);
+        return this.userRepository.save(userModel);
     }
 
     public Optional<UserModel> getUserById(Long id) {
-        return userRepository.findById(id);
+        return this.userRepository.findById(id);
     }
 
     public Optional<UserModel> updateUser(Long id, UserModel user) {
@@ -34,5 +34,9 @@ public class UserService {
         }
 
         return Optional.empty();
+    }
+
+    public void deleteUser(Long id) {
+        this.userRepository.deleteById(id);
     }
 }
