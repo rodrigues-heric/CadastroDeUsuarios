@@ -13,11 +13,26 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-    public UserModel createUser(UserModel userModel) {
+    public UserModel saveUser(UserModel userModel) {
         return userRepository.save(userModel);
     }
 
     public Optional<UserModel> getUserById(Long id) {
         return userRepository.findById(id);
+    }
+
+    public Optional<UserModel> updateUser(Long id, UserModel user) {
+        Optional<UserModel> existingUserOptional = this.getUserById(id);
+
+        if (existingUserOptional.isPresent()) {
+            UserModel existingUser = existingUserOptional.get();
+            existingUser.setName(user.getName());
+            existingUser.setEmail(user.getEmail());
+            existingUser.setAge(user.getAge());
+
+            return Optional.of(this.saveUser(existingUser));
+        }
+
+        return Optional.empty();
     }
 }

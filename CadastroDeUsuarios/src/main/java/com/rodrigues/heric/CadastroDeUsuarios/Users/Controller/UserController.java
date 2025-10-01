@@ -17,11 +17,16 @@ public class UserController {
 
     @GetMapping("/{id}")
     public ResponseEntity<Optional<UserModel>> getUserById(@PathVariable Long id) {
-        return ResponseEntity.ok(userService.getUserById(id));
+        return ResponseEntity.ok(this.userService.getUserById(id));
     }
 
     @PostMapping("/save")
     public ResponseEntity<UserModel> createUser(@RequestBody UserModel user) {
-        return ResponseEntity.ok(userService.createUser(user));
+        return ResponseEntity.ok(this.userService.saveUser(user));
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Optional<UserModel>> updateUser(@PathVariable Long id, @RequestBody UserModel user) {
+        return ResponseEntity.ok(this.userService.updateUser(id, user));
     }
 }
