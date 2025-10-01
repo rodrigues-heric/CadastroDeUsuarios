@@ -20,7 +20,6 @@ public class UserController {
         return ResponseEntity.ok(userService.getUserById(id));
     }
 
-    @ResponseBody
     @PostMapping("/save")
     public ResponseEntity<UserModel> createUser(@RequestBody UserModel user) {
         return ResponseEntity.ok(userService.createUser(user));
